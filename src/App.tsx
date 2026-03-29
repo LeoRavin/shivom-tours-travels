@@ -685,7 +685,9 @@ export default function App() {
                 <div className="h-9 w-9 flex items-center justify-between justify-center bg-white/5 rounded-2xl group-hover:bg-white/10 transition">✉</div>
                 <div>
                   <div className="text-xs text-slate-500">EMAIL</div>
+                  <div className="font-medium">shivomtravels99@gmail.com</div>
                   <div className="font-medium">kanakaraj1590@gmail.com</div>
+                  
                 </div>
               </a>
             </div>
