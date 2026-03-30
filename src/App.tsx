@@ -164,7 +164,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white font-sans">
       {/* NAVBAR */}
-      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between justify-between h-20">
             {/* Logo */}
@@ -204,14 +204,14 @@ export default function App() {
             <div className="hidden md:flex items-center justify-between gap-4">
               <button
                 onClick={handleCall}
-                className="flex items-center justify-between gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-sky-600 to-blue-700 rounded-2xl hover:brightness-110 transition-all active:scale-[0.97]"
+                className="flex items-center justify-between gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-sky-600 to-blue-700 rounded-2xl hover:brightness-110 "
               >
                 <Phone className="h-4 w-4" />
                 Call Now
               </button>
               <button
                 onClick={handleWhatsApp}
-                className="flex items-center justify-between gap-2 px-5 py-2.5 text-sm font-semibold border border-slate-300 hover:bg-slate-50 rounded-2xl transition-all"
+                className="flex items-center justify-between gap-2 px-5 py-2.5 text-sm font-semibold border border-slate-300 hover:bg-slate-50 rounded-2xl "
               >
                 <MessageCircle className="h-4 w-4 text-green-500" />
                 WhatsApp
@@ -221,7 +221,8 @@ export default function App() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 text-slate-700 ml-auto"
+              className="md:hidden fixed left-130 top-4 z-50 p-2 bg-white rounded-full text-slate-700"
+              aria-label="Mobile menu toggle"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -234,7 +235,7 @@ export default function App() {
       <>
         <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40" onClick={() => setIsMenuOpen(false)}></div>
     
-          <div className="fixed top-0 right-0 h-full w-64 bg-white px-6 py-6 space-y-4 z-50 transform transition-transform duration-300 ease-in-out translate-x-0">
+          <div className="fixed top-0 left-0 h-full w-full bg-white px-6 py-6 space-y-4 z-50">
             {[
               { label: 'Home', id: 'home' }, // active highlighting handled via CSS if needed
               { label: 'About', id: 'about' },
@@ -270,6 +271,7 @@ export default function App() {
     )}
       </nav>
 
+      <div className={isMenuOpen ? 'hidden' : ''}>
       {/* HERO */}
       <section id="home" className="relative h-screen flex items-center justify-between justify-center overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(at_bottom_right,#0ea5e9_0%,#1e3a8a_70%)]"></div>
@@ -701,6 +703,7 @@ export default function App() {
 
       {/* FLOATING WHATSAPP BUTTON */}
       
+      </div>
     </div>
   );
 }
